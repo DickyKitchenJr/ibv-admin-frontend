@@ -1,0 +1,31 @@
+.login-div {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15vw;
+  margin-bottom: 15vw;
+}
+
+.login-form {
+  border: 1vw inset hsl(168, 35%, 45%);
+  border-radius: 25px;
+}
+
+.login-form-inner-div {
+  display: flex;
+  flex-direction: column;
+  padding: 3vw;
+}
+
+.login-p {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+
+.login-label {
+  font-family: monospace;
+  font-size: 1.15rem;
+}
