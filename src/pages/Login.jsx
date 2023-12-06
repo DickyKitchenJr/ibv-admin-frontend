@@ -12,6 +12,7 @@ function Login() {
             <p className='login-p'>Log In</p>
           <label htmlFor="username" className='login-label'>User Name:</label>
           <input type="text" id='username'/>
+          <br />
           <label htmlFor="password" className='login-label'>Password</label>
           <input type="password" id='password' />
           </div>
