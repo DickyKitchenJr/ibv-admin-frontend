@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/AddToAuthorList.css"
 
 const AddToAuthorList = () => {
   const [formData, setFormData] = useState({
@@ -128,13 +129,13 @@ const AddToAuthorList = () => {
   const isInputValid = (name, value) => {
     switch (name) {
       case "firstName":
-        return value.length > 0;
+        return value !== null && value.length > 0;
       case "lastName":
-        return value.length > 0;
+        return value !== null && value.length > 0;
       case "email":
-        return value.length > 0;
+        return value !== null && value.length > 0;
       case "bio":
-        return value.length > 0;
+        return value !== null && value.length > 0;
       case "website":
       case "instagram":
       case "facebook":
@@ -146,9 +147,12 @@ const AddToAuthorList = () => {
       case "threads":
       case "bookbub":
         // URL validation logic
-        const urlRegex =
-          /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\/?([^\s]*)?$/;
-        return urlRegex.test(value);
+        if (value !== null) {
+          const urlRegex =
+            /^(https?:\/\/)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\/?([^\s]*)?$/;
+          return urlRegex.test(value);
+        }
+        return false;
       default:
         return false;
     }
@@ -156,9 +160,7 @@ const AddToAuthorList = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(
-      "Your form is processing. Please be patient and do not exit this page. You will be redirected when the form successfully submits. Please click 'OK' and wait."
-    );
+    
     const isFirstNameValid = isInputValid("firstName", formData.firstName);
     const isLastNameValid = isInputValid("lastName", formData.lastName);
     const isEmailValid = isInputValid("email", formData.email);
@@ -223,6 +225,10 @@ const AddToAuthorList = () => {
     if (!isBioValid) {
       alert("Please enter a bio");
     }
+
+    alert(
+      "Your form is processing. Please be patient and do not exit this page. You will be redirected when the form successfully submits. Please click 'OK' and wait."
+    );
 
     try {
       const response = await fetch(apiAddress, {
@@ -477,12 +483,7 @@ const AddToAuthorList = () => {
               {/* removes the selected item from the array */}
               <span
                 // TODO: convert style to external css
-                style={{
-                  cursor: "pointer",
-                  color: "red",
-                  fontWeight: "bold",
-                  fontSize: "1.25rem",
-                }}
+                className="remove-dash"
                 onClick={() => handleRemoveSubGenre(index)}
               >
                 -
