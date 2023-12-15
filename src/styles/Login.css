@@ -29,3 +29,11 @@
   font-family: monospace;
   font-size: 1.15rem;
 }
+
+.login-submit {
+  width: fit-content;
+  padding: 0.35rem;
+  font-family: monospace;
+  font-size: 1.15rem;
+  margin: auto;
+}
