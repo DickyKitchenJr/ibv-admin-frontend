@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './styles/index.css'
 import Login from './pages/Login.jsx';
+import Welcome from './pages/Welcome.jsx';
 import ProcessNewAuthors from './pages/ProcessNewAuthors.jsx';
+import ModifyListing from './pages/ModifyListing.jsx';
+import VerifyListing from './pages/VerifyListing.jsx';
 
 const router = createBrowserRouter([
   {
@@ -11,8 +14,20 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: "welcome",
+    element: <Welcome />
+  },
+  {
     path: "addauthors",
     element: <ProcessNewAuthors />
+  },
+  {
+    path: "modify",
+    element: <ModifyListing />
+  },
+  {
+    path: "verify",
+    element: <VerifyListing />
   }
 ]);
 
