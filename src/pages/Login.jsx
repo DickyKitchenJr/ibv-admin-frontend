@@ -33,7 +33,7 @@ function Login() {
       });
 
       if (response.ok) {
-        navigate("/addauthors");
+        navigate("/welcome");
       } else {
         if (response.status === 401) {
           // Handle specific error for 401 status (Unauthorized)
@@ -70,6 +70,7 @@ function Login() {
                   type="text"
                   id="username"
                   name="username"
+                  autoComplete="on"
                   value={formData.username}
                   onChange={handleInputChange}
                 />
