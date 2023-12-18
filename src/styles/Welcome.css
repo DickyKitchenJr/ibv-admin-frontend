@@ -1,0 +1,42 @@
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+.welcome-tab {
+  display: block;
+  padding: 2rem;
+  width: 50%;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  border: .75rem inset hsl(168, 35%, 45%);
+  border-radius: 25px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+.welcome-tab:hover{
+    background-color: hsla(160, 100%, 61%, 0.38);
+    width: 45%;
+}
+
+.welcome-tab:active{
+    background-color: hsl(160, 68%, 57%);
+}
+
+@media screen and (min-width: 700px) {
+    .welcome-tab{
+        font-size: 1.7rem;
+        width: 40%;
+    }
+
+    .welcome-tab:hover{
+        width: 37%;
+    }
+}
