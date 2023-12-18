@@ -7,7 +7,7 @@
 }
 
 .login-form {
-  border: 1vw inset hsl(168, 35%, 45%);
+  border: .75rem inset hsl(168, 35%, 45%);
   border-radius: 25px;
 }
 
