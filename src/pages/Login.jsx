@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Welcome from "./Welcome";
 import "../styles/Login.css";
 
 function Login() {
@@ -9,6 +10,7 @@ function Login() {
   });
   const [failedLogin, setFailedLogin] = useState(false);
   const [failedCount, setFailedCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const apiAddress = import.meta.env.VITE_API_ADDRESS;
   const navigate = useNavigate();
 
@@ -33,7 +35,7 @@ function Login() {
       });
 
       if (response.ok) {
-        navigate("/welcome");
+        setIsLoggedIn(true);
       } else {
         if (response.status === 401) {
           // Handle specific error for 401 status (Unauthorized)
@@ -53,7 +55,7 @@ function Login() {
 
   return (
     <main>
-      {failedCount < 10 ? (
+      {isLoggedIn === false ? <> {failedCount < 10 ? (
         <>
           {" "}
           <div className="login-div">
@@ -108,7 +110,8 @@ function Login() {
           </p>
         </div>
         </>
-      )}
+      )} </> : <Welcome loggedIn = {isLoggedIn} /> }
+      
     </main>
   );
 }
