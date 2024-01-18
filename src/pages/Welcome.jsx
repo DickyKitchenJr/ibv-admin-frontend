@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../styles/Welcome.css";
 
-function Welcome() {
+function Welcome({loggedIn}) {
   return (
     <>
       <h1 className="title">Welcome To The Inner Vault</h1>
