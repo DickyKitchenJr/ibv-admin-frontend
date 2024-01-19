@@ -1,11 +1,12 @@
-
+import Logout from "../components/Logout";
 
 function ModifyListing() {
   return (
     <>
-     Modify Listing 
+      <Logout />
+      Modify Listing
     </>
-  )
+  );
 }
 
-export default ModifyListing
+export default ModifyListing;

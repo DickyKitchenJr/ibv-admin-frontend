@@ -1,11 +1,12 @@
-
+import Logout from "../components/Logout";
 
 function VerifyListing() {
   return (
-    <div>
-        Verify Listing
-    </div>
-  )
+    <>
+      <Logout />
+      Verify Listing
+    </>
+  );
 }
 
-export default VerifyListing
+export default VerifyListing;
