@@ -1,12 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import './styles/index.css'
-import Login from './pages/Login.jsx';
-import Welcome from './pages/Welcome.jsx';
-import ProcessNewAuthors from './pages/ProcessNewAuthors.jsx';
-import ModifyListing from './pages/ModifyListing.jsx';
-import VerifyListing from './pages/VerifyListing.jsx';
+import AuthProvider from "./context/AuthProvider.jsx";
+import "./styles/index.css";
+import Login from "./pages/Login.jsx";
+import Welcome from "./pages/Welcome.jsx";
+import ProcessNewAuthors from "./pages/ProcessNewAuthors.jsx";
+import ModifyListing from "./pages/ModifyListing.jsx";
+import VerifyListing from "./pages/VerifyListing.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,25 +16,26 @@ const router = createBrowserRouter([
   },
   {
     path: "welcome",
-    element: <Welcome />
+    element: <Welcome />,
   },
   {
     path: "addauthors",
-    element: <ProcessNewAuthors />
+    element: <ProcessNewAuthors />,
   },
   {
     path: "modify",
-    element: <ModifyListing />
+    element: <ModifyListing />,
   },
   {
     path: "verify",
-    element: <VerifyListing />
-  }
+    element: <VerifyListing />,
+  },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
