@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import Welcome from "./Welcome";
 import "../styles/Login.css";
+import { AuthContext } from "../context/AuthProvider";
 
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
-  const [failedLogin, setFailedLogin] = useState(false);
-  const [failedCount, setFailedCount] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const apiAddress = import.meta.env.VITE_API_ADDRESS;
-  const navigate = useNavigate();
+  const { handleLogin, failedCount, failedLogin, isLoggedIn } = useContext(AuthContext)
 
   // Username and Password handler
   const handleInputChange = (e) => {
@@ -23,38 +19,11 @@ function Login() {
 
   // Submission handler
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(apiAddress, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setIsLoggedIn(true);
-      } else {
-        if (response.status === 401) {
-          // Handle specific error for 401 status (Unauthorized)
-          setFailedLogin(true);
-          setFailedCount(failedCount + 1);
-        } else {
-          // Handle other errors, e.g., show a generic error message to the user
-          alert(
-            "Form submission failed. Please recheck your information and try again"
-          );
-        }
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    handleLogin(e, formData);
   };
 
   return (
-    <main>
+      <main>
       {isLoggedIn === false ? <> {failedCount < 10 ? (
         <>
           {" "}
@@ -89,7 +58,7 @@ function Login() {
                 />
                 <br />
                 <button type="submit" className="login-submit">
-                  Login
+                  Log In
                 </button>
               </div>
             </form>
@@ -110,7 +79,7 @@ function Login() {
           </p>
         </div>
         </>
-      )} </> : <Welcome loggedIn = {isLoggedIn} /> }
+      )} </> : <Welcome/> }
       
     </main>
   );
