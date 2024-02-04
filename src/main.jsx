@@ -8,6 +8,7 @@ import Welcome from "./pages/Welcome.jsx";
 import ProcessNewAuthors from "./pages/ProcessNewAuthors.jsx";
 import ModifyListing from "./pages/ModifyListing.jsx";
 import VerifyListing from "./pages/VerifyListing.jsx";
+import DeleteAuthors from "./pages/DeleteAuthors.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "verify",
     element: <VerifyListing />,
   },
+  {
+    path:"delete",
+    element: <DeleteAuthors />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
