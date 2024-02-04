@@ -6,6 +6,7 @@ const AuthProvider = ({ children }) => {
   const [failedLogin, setFailedLogin] = useState(false);
   const [failedCount, setFailedCount] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userAccessLevel, setUserAccessLevel] = useState(null);
   const logoutAddress = import.meta.env.VITE_API_LOGOUT_ADDRESS;
   const loginAddress = import.meta.env.VITE_API_LOGIN_ADDRESS;
 
@@ -19,9 +20,12 @@ const AuthProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
+        credentials:"include"
       });
 
       if (response.ok) {
+        const result = await response.json();
+        setUserAccessLevel(result.user.accessLevel)
         setIsLoggedIn(true);
       } else {
         if (response.status === 401) {
@@ -49,9 +53,9 @@ const AuthProvider = ({ children }) => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials:"include"
       });
       if (response.ok) {
-        console.log("Success response received");
         setIsLoggedIn(false);
         window.location.href = "/";
       } else {
@@ -65,7 +69,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ handleLogin, handleLogout, isLoggedIn, setIsLoggedIn, failedLogin, setFailedLogin, failedCount, setFailedCount }}>
+    <AuthContext.Provider value={{ handleLogin, handleLogout, isLoggedIn, failedLogin, failedCount, userAccessLevel }}>
       {children}
     </AuthContext.Provider>
   );
