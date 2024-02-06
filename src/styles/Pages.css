@@ -1,0 +1,85 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+.back {
+  color: hsl(168, 22%, 35%);
+  background: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.25rem;
+}
+
+.back:hover {
+  color: black;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 1rem;
+}
+
+.main {
+  padding: 1rem;
+}
+
+.author-info {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+  border: 0.5rem inset hsl(168, 35%, 45%);
+  border-radius: 25px;
+  padding: .5rem;
+}
+
+.button-mobile-size{
+    display: block;
+    text-align: center;
+    padding-top: .5rem;
+}
+
+.button {
+  color: hsl(168, 22%, 35%);
+  background: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  border: solid;
+  padding: 0.25rem;
+}
+
+.button:hover {
+  background-color: hsla(160, 100%, 61%, 0.38);
+}
+
+@media screen and (min-width: 700px) {
+  .author-info {
+    font-size: 1.25rem;
+    border: 0.75rem inset hsl(168, 35%, 45%);
+    width: 50%;
+    display: block;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .button {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+    .button-mobile-size {
+        display: inline-block;
+        padding: 0;
+    }
+}
