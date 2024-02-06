@@ -1,3 +1,10 @@
+.welcome-top-bar {
+    display: flex;
+    justify-content: end;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
 .title {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
