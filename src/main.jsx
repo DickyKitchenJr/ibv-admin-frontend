@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AuthProvider from "./context/AuthProvider.jsx";
 import "./styles/index.css";
+import AuthProvider from "./context/AuthProvider.jsx";
 import Login from "./pages/Login.jsx";
 import Welcome from "./pages/Welcome.jsx";
 import ProcessNewAuthors from "./pages/ProcessNewAuthors.jsx";
 import ModifyListing from "./pages/ModifyListing.jsx";
 import VerifyListing from "./pages/VerifyListing.jsx";
 import DeleteAuthors from "./pages/DeleteAuthors.jsx";
+import AddUsers from "./pages/AddUsers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,9 +33,13 @@ const router = createBrowserRouter([
     element: <VerifyListing />,
   },
   {
-    path:"delete",
-    element: <DeleteAuthors />
-  }
+    path: "delete",
+    element: <DeleteAuthors />,
+  },
+  {
+    path: "addusers",
+    element: <AddUsers />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

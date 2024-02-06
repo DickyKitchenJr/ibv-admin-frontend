@@ -9,7 +9,10 @@ function Welcome() {
 
   return (
     <>
-      <Logout />
+      <div className="welcome-top-bar">
+        <Logout />
+      </div>
+
       <h1 className="title">Welcome To The Inner Vault</h1>
       <h2 className="title">How Would You Like To Help?</h2>
       {userAccessLevel === "admin" ? (
@@ -28,6 +31,11 @@ function Welcome() {
             <NavLink to="/delete" className="welcome-tab">
               Delete Authors
             </NavLink>
+            <NavLink to="/addusers" className="welcome-tab">
+              Add Users
+            </NavLink>
+            <br />
+            <br />
           </main>{" "}
         </>
       ) : (
@@ -43,6 +51,8 @@ function Welcome() {
             <NavLink to="/verify" className="welcome-tab">
               Verify Listings
             </NavLink>
+            <br />
+            <br />
           </main>{" "}
         </>
       )}
