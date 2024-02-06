@@ -28,8 +28,7 @@ function Login() {
       {/* if user is not logged in */}
       {isLoggedIn === false ? (
         <>
-        {/* if user has not failed to log in >= 10 times */}
-          {" "}
+          {/* if user has not failed to log in >= 10 times */}{" "}
           {failedCount < 10 ? (
             <>
               {" "}
