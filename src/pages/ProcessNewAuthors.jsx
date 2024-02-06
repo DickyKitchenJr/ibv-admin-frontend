@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Logout from "../components/Logout";
-import "../styles/Welcome.css";
+import { NavLink } from "react-router-dom";
+import "../styles/Pages.css";
 
 function ProcessNewAuthors() {
   const [pendingAuthors, setPendingAuthors] = useState([]);
@@ -30,7 +31,13 @@ function ProcessNewAuthors() {
 
   return (
     <>
-      <Logout />
+      <nav className="top-bar">
+        <NavLink to="/welcome" className="back">
+          &#129092; Back
+        </NavLink>
+        <Logout />
+      </nav>
+
       <h1 className="title">Process Author Applications</h1>
       <h2 className="title">
         Currently there are {pendingAuthors.length} authors in the queue
