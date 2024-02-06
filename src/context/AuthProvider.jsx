@@ -20,12 +20,12 @@ const AuthProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-        credentials:"include"
+        credentials: "include",
       });
 
       if (response.ok) {
         const result = await response.json();
-        setUserAccessLevel(result.user.accessLevel)
+        setUserAccessLevel(result.user.accessLevel);
         setIsLoggedIn(true);
       } else {
         if (response.status === 401) {
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials:"include"
+        credentials: "include",
       });
       if (response.ok) {
         setIsLoggedIn(false);
@@ -69,7 +69,16 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ handleLogin, handleLogout, isLoggedIn, failedLogin, failedCount, userAccessLevel }}>
+    <AuthContext.Provider
+      value={{
+        handleLogin,
+        handleLogout,
+        isLoggedIn,
+        failedLogin,
+        failedCount,
+        userAccessLevel,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
