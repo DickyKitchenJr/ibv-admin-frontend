@@ -53,6 +53,16 @@
   margin-right: auto;
 }
 
+.user-input {
+  font-size: 1rem;
+}
+
+.user-checkbox {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+
 .button-mobile-size {
   display: block;
   text-align: center;
@@ -98,6 +108,10 @@
     margin-top: 3rem;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  .user-input {
+    font-size: 1.25rem;
   }
 
   .button {

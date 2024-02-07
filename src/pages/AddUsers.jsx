@@ -53,6 +53,7 @@ function AddUsers() {
         <form className="user-info">
           <label htmlFor="userName">User Name:</label>
           <input
+            className="user-input"
             type="text"
             name="userName"
             id="userName"
@@ -63,6 +64,7 @@ function AddUsers() {
           <br />
           <label htmlFor="password">Password:</label>
           <input
+            className="user-input"
             type="text"
             name="password"
             id="password"
@@ -73,6 +75,7 @@ function AddUsers() {
           <br />
           <label htmlFor="accessLevel">Give Admin Privileges:</label>{" "}
           <input
+            className="user-checkbox"
             type="checkbox"
             id="accessLevel"
             name="accessLevel"
