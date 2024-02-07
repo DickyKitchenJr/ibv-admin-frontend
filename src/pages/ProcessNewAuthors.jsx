@@ -1,11 +1,20 @@
 import { useEffect, useState } from "react";
 import Logout from "../components/Logout";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import { useContext } from "react";
 import "../styles/Pages.css";
 
 function ProcessNewAuthors() {
+  const { userAccessLevel } = useContext(AuthContext);
   const [pendingAuthors, setPendingAuthors] = useState([]);
   const apiAddress = import.meta.env.VITE_API_PENDING_AUTHORS_ADDRESS;
+
+  const unauthorizedUser = () => {
+    if (userAccessLevel !== "admin" && userAccessLevel !== "helper") {
+      window.location.href = "/";
+    }
+  };
 
   useEffect(() => {
     const fetchPendingAuthors = async () => {
@@ -31,6 +40,9 @@ function ProcessNewAuthors() {
 
   return (
     <>
+      {/* check if user is authorized, and if not deny access and send them to the login */}
+      {unauthorizedUser()}
+      
       <nav className="top-bar">
         <NavLink to="/welcome" className="back">
           &#129092; Back
