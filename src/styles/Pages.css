@@ -37,13 +37,26 @@
   color: black;
   border: 0.5rem inset hsl(168, 35%, 45%);
   border-radius: 25px;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
-.button-mobile-size{
-    display: block;
-    text-align: center;
-    padding-top: .5rem;
+.user-info {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+  border: 0.5rem inset hsl(168, 35%, 45%);
+  border-radius: 25px;
+  width: fit-content;
+  padding: 0.75rem 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button-mobile-size {
+  display: block;
+  text-align: center;
+  padding-top: 0.5rem;
 }
 
 .button {
@@ -60,11 +73,26 @@
   background-color: hsla(160, 100%, 61%, 0.38);
 }
 
+.submit{
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 700px) {
   .author-info {
     font-size: 1.25rem;
     border: 0.75rem inset hsl(168, 35%, 45%);
     width: 50%;
+    display: block;
+    padding: 2rem;
+    margin-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .user-info {
+    font-size: 1.25rem;
+    border: 0.75rem inset hsl(168, 35%, 45%);
     display: block;
     padding: 2rem;
     margin-top: 3rem;
@@ -78,8 +106,8 @@
 }
 
 @media screen and (min-width: 900px) {
-    .button-mobile-size {
-        display: inline-block;
-        padding: 0;
-    }
+  .button-mobile-size {
+    display: inline-block;
+    padding: 0;
+  }
 }
