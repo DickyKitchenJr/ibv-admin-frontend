@@ -47,6 +47,7 @@ function AddUsers() {
       </nav>
 
       <h1 className="title">Add Users</h1>
+      <h2 className="title">Only add those who have been carefully vetted.</h2>
 
       <main className="main">
         <form className="user-info">
