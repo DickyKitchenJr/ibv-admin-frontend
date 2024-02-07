@@ -47,6 +47,50 @@ function AddUsers() {
       </nav>
 
       <h1 className="title">Add Users</h1>
+
+      <main className="main">
+        <form className="user-info">
+          <label htmlFor="userName">User Name:</label>
+          <input
+            type="text"
+            name="userName"
+            id="userName"
+            value={formData.userName}
+            onChange={handleInputChange}
+          />
+          <br />
+          <br />
+          <label htmlFor="password">Password:</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+          <br />
+          <br />
+          <label htmlFor="accessLevel">Give Admin Privileges:</label>{" "}
+          <input
+            type="checkbox"
+            id="accessLevel"
+            name="accessLevel"
+            value="accessLevel"
+            checked={isChecked}
+            onChange={handleCheckbox}
+          />
+          <br />
+          <br />
+          <p>
+            (Admin Privileges Allow For Deleting Listings And Adding Users
+            **Exercise Caution**)
+          </p>
+          <br />
+          <div className="submit">
+            <button className="button">Submit</button>
+          </div>
+        </form>
+      </main>
     </>
   );
 }
