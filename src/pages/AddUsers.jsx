@@ -18,7 +18,7 @@ function AddUsers() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleCheckbox = (e) => {
+  const handleCheckbox = () => {
     if (isChecked === false) {
       setIsChecked(true);
       setFormData({ ...formData, accessLevel: "admin" });
