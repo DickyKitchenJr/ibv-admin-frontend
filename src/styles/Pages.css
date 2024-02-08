@@ -63,6 +63,10 @@
   vertical-align: middle;
 }
 
+.center-text{
+  text-align: center;
+}
+
 .button-mobile-size {
   display: block;
   text-align: center;
