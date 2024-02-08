@@ -7,11 +7,12 @@ import { useContext, useState } from "react";
 function AddUsers() {
   const { userAccessLevel } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    userName: null,
-    password: null,
+    username: "",
+    password: "",
     accessLevel: "helper",
   });
   const [isChecked, setIsChecked] = useState(false);
+  const apiAddUserAddress = import.meta.env.VITE_API_ADD_USER_ADDRESS;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +26,37 @@ function AddUsers() {
     } else {
       setIsChecked(false);
       setFormData({ ...formData, accessLevel: "helper" });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(apiAddUserAddress, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        //clear form
+        setFormData({
+          username: "",
+          password: "",
+          accessLevel: "helper",
+        });
+        //inform user that request was successful
+        alert(`${result.username} successfully added as ${result.accessLevel}`);
+      } else {
+        alert("Error. User not added.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -50,14 +82,14 @@ function AddUsers() {
       <h2 className="title">Only add those who have been carefully vetted.</h2>
 
       <main className="main">
-        <form className="user-info">
-          <label htmlFor="userName">User Name:</label>
+        <form className="user-info" onSubmit={handleSubmit}>
+          <label htmlFor="username">User Name:</label>
           <input
             className="user-input"
             type="text"
-            name="userName"
-            id="userName"
-            value={formData.userName}
+            name="username"
+            id="username"
+            value={formData.username}
             onChange={handleInputChange}
           />
           <br />
@@ -79,7 +111,6 @@ function AddUsers() {
             type="checkbox"
             id="accessLevel"
             name="accessLevel"
-            value="accessLevel"
             checked={isChecked}
             onChange={handleCheckbox}
           />
