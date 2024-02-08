@@ -2,10 +2,46 @@ import Logout from "../components/Logout";
 import "../styles/Pages.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 function DeleteAuthors() {
+  const [formData, setFormData] = useState({ email: "" });
   const { userAccessLevel } = useContext(AuthContext);
+  const apiDeleteAuthorAddress = import.meta.env.VITE_API_DELETE_AUTHOR_ADDRESS;
+
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setFormData({ email: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(
+        apiDeleteAuthorAddress + `/${formData.email}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          credentials: "include",
+        }
+      );
+
+      if (response.ok) {
+        //clear form
+        setFormData({ email: "" });
+        //inform user that request was successful
+        alert("Deletion Successful");
+      } else {
+        alert("Error. Deletion Failed.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
   const unauthorizedUser = () => {
     if (userAccessLevel !== "admin") {
