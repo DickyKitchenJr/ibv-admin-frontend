@@ -109,8 +109,8 @@ function VerifyListing() {
         Currently there are {unverifiedAuthors.length} unverified authors.
       </h2>
       {unverifiedAuthors.length === 0 ? (
-        <main>
-          <p>
+        <main className="main">
+          <p className="author-info">
             Thank you for helping keep our authors compliant with requirements
             for listing.
           </p>
