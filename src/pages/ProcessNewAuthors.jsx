@@ -42,7 +42,7 @@ function ProcessNewAuthors() {
     <>
       {/* check if user is authorized, and if not deny access and send them to the login */}
       {unauthorizedUser()}
-      
+
       <nav className="top-bar">
         <NavLink to="/welcome" className="back">
           &#129092; Back
@@ -55,7 +55,11 @@ function ProcessNewAuthors() {
         Currently there are {pendingAuthors.length} authors in the queue
       </h2>
       {pendingAuthors.length === 0 ? (
-        <p>Thank you for helping keep our list empty.</p>
+        <main className="main">
+          <p className="author-info">
+            Thank you for helping keep our list empty.
+          </p>
+        </main>
       ) : (
         <p>Authors waiting for processing</p>
       )}
