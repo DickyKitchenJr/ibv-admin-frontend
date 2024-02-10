@@ -70,6 +70,7 @@ function ModifyListing() {
       </nav>
 
       <h1 className="title">Modify Listing</h1>
+      <h2 className="title">Email Indie Book Vault After Making Changes</h2>
 
       <main className="main">
         <form className="author-info" onSubmit={handleEmailSubmit}>
