@@ -32,7 +32,6 @@ function ModifyListing() {
         //set author listing
         const result = await response.json();
         setAuthorListing(result.author);
-        console.log(result);
         //change display to show modify author form
         handleDisplayInfo();
       } else {
@@ -72,26 +71,63 @@ function ModifyListing() {
       <h1 className="title">Modify Listing</h1>
       <h2 className="title">Email Indie Book Vault After Making Changes</h2>
 
-      <main className="main">
-        <form className="author-info" onSubmit={handleEmailSubmit}>
-          <p className="center-text">Only Change Requested Information</p>
-          <br />
-          <label htmlFor="email">Author's Email:</label>
-          <input
-            className="user-input"
-            type="text"
-            name="email"
-            id="email"
-            value={authorEmail.email}
-            onChange={handleEmailInput}
-          />
-          <br />
-          <br />
-          <div className="submit">
-            <button className="button">Submit</button>
-          </div>
-        </form>
-      </main>
+      {displayInfo === "getAuthor" ? (
+        <main className="main">
+          <form className="author-info" onSubmit={handleEmailSubmit}>
+            <p className="center-text">Only Change Requested Information</p>
+            <br />
+            <label htmlFor="email">Author's Email:</label>
+            <input
+              className="user-input"
+              type="text"
+              name="email"
+              id="email"
+              value={authorEmail.email}
+              onChange={handleEmailInput}
+            />
+            <br />
+            <br />
+            <div className="submit">
+              <button className="button">Submit</button>
+            </div>
+          </form>
+        </main>
+      ) : (
+        <main className="main">
+          <form className="author-info">
+            <p className="center-text">Only Change Requested Information</p>
+            <br />
+            <p>Select What To Change:</p>
+            <div>
+              <label htmlFor="name">Name</label>{" "}
+              <input type="checkbox" id="name" className="user-checkbox" />
+              <br />
+              <label htmlFor="authorEmail">Email</label>{" "}
+              <input
+                type="checkbox"
+                id="authorEmail"
+                className="user-checkbox"
+              />
+              <br />
+              <label htmlFor="genre">Umbrella Genre</label>{" "}
+              <input type="checkbox" id="genre" className="user-checkbox" />
+              <br />
+              <label htmlFor="nicheGenre">Sub-Genre</label>{" "}
+              <input
+                type="checkbox"
+                id="nicheGenre"
+                className="user-checkbox"
+              />
+              <br />
+              <label htmlFor="links">Links</label>{" "}
+              <input type="checkbox" id="links" className="user-checkbox" />
+              <br />
+              <label htmlFor="authorBio">Bio</label>{" "}
+              <input type="checkbox" id="authorBio" className="user-checkbox" />
+            </div>
+          </form>
+        </main>
+      )}
     </>
   );
 }
