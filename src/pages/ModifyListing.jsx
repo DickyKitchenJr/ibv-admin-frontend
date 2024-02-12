@@ -9,7 +9,25 @@ function ModifyListing() {
   const [displayInfo, setDisplayInfo] = useState("getAuthor");
   const [authorEmail, setAuthorEmail] = useState({ email: "" });
   const [authorListing, setAuthorListing] = useState([]);
+  const [dataToModify, setDataToModify] = useState({
+    name: false,
+    authorEmail: false,
+    genre: false,
+    nicheGenre: false,
+    links: false,
+    authorBio: false,
+  });
   const apiGetAuthorAddress = import.meta.env.VITE_API_AUTHOR_BY_EMAIL_ADDRESS;
+
+  const handleDisplayInfo = () => {
+    if (displayInfo === "getAuthor") {
+      setDisplayInfo("modifyAuthor");
+    } else {
+      setDisplayInfo("getAuthor");
+    }
+  };
+
+  //getAuthor form handlers
 
   const handleEmailInput = (e) => {
     const { value } = e.target;
@@ -42,12 +60,13 @@ function ModifyListing() {
     }
   };
 
-  const handleDisplayInfo = () => {
-    if (displayInfo === "getAuthor") {
-      setDisplayInfo("modifyAuthor");
-    } else {
-      setDisplayInfo("getAuthor");
-    }
+  //modifyAuthor form handlers
+
+  const handleChooseToModify = (checkboxName) => {
+    setDataToModify((prevLinks) => ({
+      ...prevLinks,
+      [checkboxName]: !prevLinks[checkboxName],
+    }));
   };
 
   const unauthorizedUser = () => {
@@ -100,30 +119,58 @@ function ModifyListing() {
             <p>Select What To Change:</p>
             <div>
               <label htmlFor="name">Name</label>{" "}
-              <input type="checkbox" id="name" className="user-checkbox" />
+              <input
+                type="checkbox"
+                id="name"
+                className="user-checkbox"
+                onChange={() => handleChooseToModify("name")}
+                checked={dataToModify.name}
+              />
               <br />
               <label htmlFor="authorEmail">Email</label>{" "}
               <input
                 type="checkbox"
                 id="authorEmail"
                 className="user-checkbox"
+                onChange={() => handleChooseToModify("authorEmail")}
+                checked={dataToModify.authorEmail}
               />
               <br />
               <label htmlFor="genre">Umbrella Genre</label>{" "}
-              <input type="checkbox" id="genre" className="user-checkbox" />
+              <input
+                type="checkbox"
+                id="genre"
+                className="user-checkbox"
+                onChange={() => handleChooseToModify("genre")}
+                checked={dataToModify.genre}
+              />
               <br />
               <label htmlFor="nicheGenre">Sub-Genre</label>{" "}
               <input
                 type="checkbox"
                 id="nicheGenre"
                 className="user-checkbox"
+                onChange={() => handleChooseToModify("nicheGenre")}
+                checked={dataToModify.nicheGenre}
               />
               <br />
               <label htmlFor="links">Links</label>{" "}
-              <input type="checkbox" id="links" className="user-checkbox" />
+              <input
+                type="checkbox"
+                id="links"
+                className="user-checkbox"
+                onChange={() => handleChooseToModify("links")}
+                checked={dataToModify.links}
+              />
               <br />
               <label htmlFor="authorBio">Bio</label>{" "}
-              <input type="checkbox" id="authorBio" className="user-checkbox" />
+              <input
+                type="checkbox"
+                id="authorBio"
+                className="user-checkbox"
+                onChange={() => handleChooseToModify("authorBio")}
+                checked={dataToModify.authorBio}
+              />
             </div>
           </form>
         </main>
