@@ -65,7 +65,6 @@ function VerifyListing() {
         authorsWithSites.push(authors[i]);
       }
     }
-    console.log(authorsWithSites);
     return authorsWithSites;
   };
 
