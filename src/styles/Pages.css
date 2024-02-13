@@ -88,15 +88,24 @@
   background-color: hsla(160, 100%, 61%, 0.38);
 }
 
+.side-by-side{
+  display: flex;
+}
+
 .submit {
   display: flex;
   justify-content: center;
 }
 
-.umbrella-genre {
+.umbrella-genre, .additional-links {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-evenly;
+}
+
+.bio-text{
+  width: 100%;
+  font-size: 1rem;
 }
 
 .for-accessibility {
@@ -140,6 +149,10 @@
     display: inline;
     font-size: 1.25rem;
     width: 65%;
+  }
+
+  .bio-text{
+    font-size: 1.25rem;
   }
 
   .button {
