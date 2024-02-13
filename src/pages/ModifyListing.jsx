@@ -2,7 +2,8 @@ import Logout from "../components/Logout";
 import "../styles/Pages.css";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
+import { ConvertBio } from "../components/ConvertBio";
 
 function ModifyListing() {
   const { userAccessLevel } = useContext(AuthContext);
@@ -16,6 +17,17 @@ function ModifyListing() {
     nicheGenre: false,
     links: false,
     authorBio: false,
+  });
+  const [additionalLink, setAdditionalLink] = useState({
+    instagrambox: false,
+    facebookbox: false,
+    twitterbox: false,
+    tiktokbox: false,
+    threadsbox: false,
+    mastodonbox: false,
+    amazonbiobox: false,
+    goodreadsbox: false,
+    bookbubbox: false,
   });
   const [userChoice, setUserChoice] = useState("");
 
@@ -123,6 +135,25 @@ function ModifyListing() {
   const handleUserChoice = (e) => {
     const { value } = e.target;
     setUserChoice(value);
+  };
+
+  const handleAdditionalLinksBox = (checkboxName) => {
+    setAdditionalLink((prevLinks) => ({
+      ...prevLinks,
+      [checkboxName]: !prevLinks[checkboxName],
+    }));
+  };
+
+  const handleBioChange = (e) => {
+    const { value } = e.target;
+    const enforceSingleLineBreaks = (input) => {
+      return input.replace(/\n{2,}/g, "\n\n");
+    };
+
+    // if the input is for bio use enforceSingleLineBreaks, otherwise just return the value
+    const processedValue = enforceSingleLineBreaks(value);
+
+    setAuthorListing({ ...authorListing, bio: processedValue });
   };
 
   const unauthorizedUser = () => {
@@ -419,8 +450,7 @@ function ModifyListing() {
                   <label htmlFor="subGenre" className="for-accessibility">
                     Subgenre
                   </label>
-                  <div>
-                    {/* TODO: adjust styling for input and button */}
+                  <div className="side-by-side">
                     <input
                       className="user-input"
                       type="text"
@@ -454,7 +484,6 @@ function ModifyListing() {
                 </>
               )}
               {/* Links Section */}
-              {/* TODO: add conditional for links */}
               <label htmlFor="links">Links</label>{" "}
               <input
                 type="checkbox"
@@ -464,8 +493,245 @@ function ModifyListing() {
                 checked={dataToModify.links}
               />
               <br />
+              {!dataToModify.links ? null : (
+                <>
+                  <div className="additional-links">
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="instagrambox"
+                        onChange={() =>
+                          handleAdditionalLinksBox("instagrambox")
+                        }
+                        checked={additionalLink.instagrambox}
+                      />
+                      <label htmlFor="instagrambox">Instagram</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="facebookbox"
+                        onChange={() => handleAdditionalLinksBox("facebookbox")}
+                        checked={additionalLink.facebookbox}
+                      />
+                      <label htmlFor="facebookbox">Facebook</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="twitterbox"
+                        onChange={() => handleAdditionalLinksBox("twitterbox")}
+                        checked={additionalLink.twitterbox}
+                      />
+                      <label htmlFor="twitterbox">Twitter/X</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="tiktokbox"
+                        onChange={() => handleAdditionalLinksBox("tiktokbox")}
+                        checked={additionalLink.tiktokbox}
+                      />
+                      <label htmlFor="tiktokbox">TikTok</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="threadsbox"
+                        onChange={() => handleAdditionalLinksBox("threadsbox")}
+                        checked={additionalLink.threadsbox}
+                      />
+                      <label htmlFor="threadsbox">Threads</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="mastodonbox"
+                        onChange={() => handleAdditionalLinksBox("mastodonbox")}
+                        checked={additionalLink.mastodonbox}
+                      />
+                      <label htmlFor="mastodonbox">Mastodon</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="amazonbiobox"
+                        onChange={() =>
+                          handleAdditionalLinksBox("amazonbiobox")
+                        }
+                        checked={additionalLink.amazonbiobox}
+                      />
+                      <label htmlFor="amazonbiobox">Amazon Author Page</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="goodreadsbox"
+                        onChange={() =>
+                          handleAdditionalLinksBox("goodreadsbox")
+                        }
+                        checked={additionalLink.goodreadsbox}
+                      />
+                      <label htmlFor="goodreadsbox">Goodreads</label>
+                    </div>
+                    <div>
+                      <input
+                        className="user-checkbox"
+                        type="checkbox"
+                        id="bookbubbox"
+                        onChange={() => handleAdditionalLinksBox("bookbubbox")}
+                        checked={additionalLink.bookbubbox}
+                      />
+                      <label htmlFor="bookbubbox">BookBub</label>
+                    </div>
+                  </div>
+                  <br />
+                  {additionalLink.instagrambox ? (
+                    <>
+                      <label htmlFor="instagram">Instagram:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="instagram"
+                        id="instagram"
+                        value={authorListing.instagram}
+                        defaultValue={authorListing.instagram}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.facebookbox ? (
+                    <>
+                      <label htmlFor="facebook">Facebook:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="facebook"
+                        id="facebook"
+                        value={authorListing.facebook}
+                        defaultValue={authorListing.facebook}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.twitterbox ? (
+                    <>
+                      <label htmlFor="twitter">Twitter/X:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="twitter"
+                        id="twitter"
+                        value={authorListing.twitter}
+                        defaultValue={authorListing.twitter}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.tiktokbox ? (
+                    <>
+                      <label htmlFor="tiktok">TikTok:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="tiktok"
+                        id="tiktok"
+                        value={authorListing.tiktok}
+                        defaultValue={authorListing.tiktok}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.threadsbox ? (
+                    <>
+                      <label htmlFor="threads">Threads:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="threads"
+                        id="threads"
+                        value={authorListing.threads}
+                        defaultValue={authorListing.threads}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.mastodonbox ? (
+                    <>
+                      <label htmlFor="mastodon">Mastodon:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="mastodon"
+                        id="mastodon"
+                        value={authorListing.mastodon}
+                        defaultValue={authorListing.mastodon}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.amazonbiobox ? (
+                    <>
+                      <label htmlFor="amazonBio">Amazon Author Page:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="amazonBio"
+                        id="amazonBio"
+                        value={authorListing.amazonBio}
+                        defaultValue={authorListing.amazonBio}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.goodreadsbox ? (
+                    <>
+                      <label htmlFor="goodreads">Goodreads:</label>
+                      <input
+                        type="text"
+                        className="user-input"
+                        name="goodreads"
+                        id="goodreads"
+                        value={authorListing.goodreads}
+                        defaultValue={authorListing.goodreads}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}
+                  {additionalLink.bookbubbox ? (
+                    <>
+                      <label htmlFor="bookbub">BookBub:</label>
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="bookbub"
+                        id="bookbub"
+                        value={authorListing.bookbub}
+                        defaultValue={authorListing.bookbub}
+                        onChange={handleInputChange}
+                      />
+                      <br />
+                    </>
+                  ) : null}{" "}
+                </>
+              )}
               {/* Bio Section */}
-              {/* TODO: finish logic and settings for textarea */}
               <label htmlFor="authorBio">Bio</label>{" "}
               <input
                 type="checkbox"
@@ -480,11 +746,13 @@ function ModifyListing() {
                     Bio
                   </label>
                   <textarea
+                    className="bio-text"
                     name="bio"
                     id="bio"
                     cols="30"
                     rows="10"
-                    defaultValue={authorListing.bio}
+                    defaultValue={ConvertBio(authorListing.bio)}
+                    onChange={handleBioChange}
                   ></textarea>
                   <br />
                 </>
