@@ -32,6 +32,8 @@ function ModifyListing() {
   const [userChoice, setUserChoice] = useState("");
 
   const apiGetAuthorAddress = import.meta.env.VITE_API_AUTHOR_BY_EMAIL_ADDRESS;
+  const apiModifyAuthorListingAddress = import.meta.env
+    .VITE_API_MODIFY_AUTHORS_ADDRESS;
 
   const handleDisplayInfo = () => {
     if (displayInfo === "getAuthor") {
@@ -156,6 +158,48 @@ function ModifyListing() {
     setAuthorListing({ ...authorListing, bio: processedValue });
   };
 
+  const filteredAuthorListing = () => {
+    setAuthorListing((author) => {
+      //remove id, createdAt, and updatedAt values to prevent accidentally modifying them
+      const { id, createdAt, updatedAt, ...rest } = author;
+      return rest;
+    });
+    return authorListing;
+  };
+
+  const handleModifySubmit = async (e) => {
+    e.preventDefault();
+
+    const data = filteredAuthorListing();
+    // fetch request to update isVerified to true
+    try {
+      const response = await fetch(
+        apiModifyAuthorListingAddress + `/${authorEmail.email}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+          credentials: "include",
+        }
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(
+          `${result.author.firstName} ${result.author.lastName} listing is now updated`
+        );
+        setDisplayInfo("getAuthor");
+      } else {
+        alert("Listing did not update");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  //Validation section
   const unauthorizedUser = () => {
     if (userAccessLevel !== "admin" && userAccessLevel !== "helper") {
       window.location.href = "/";
@@ -200,7 +244,7 @@ function ModifyListing() {
         </main>
       ) : (
         <main className="main">
-          <form className="author-info">
+          <form onSubmit={handleModifySubmit} className="author-info">
             <p className="center-text">Only Change Requested Information</p>
             <br />
             <p>Select What To Change:</p>
