@@ -34,6 +34,13 @@
   padding-bottom: .65rem;
 }
 
+.attention{
+  margin-bottom: .65rem;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color:red;
+}
+
 .author-info {
   font-family: monospace;
   font-weight: bold;
