@@ -182,7 +182,7 @@ function VerifyListing() {
 
                         <p>Listed on: {author.createdAt}</p>
                         <br />
-                        <p>
+                        <p className="attention">
                           If author's listing is older than 7 days and author
                           does not meet requirements, please email author's
                           information to Indie Book Vault.
