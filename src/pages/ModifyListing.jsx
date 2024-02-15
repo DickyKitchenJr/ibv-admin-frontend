@@ -250,557 +250,588 @@ function ModifyListing() {
             <p>Select What To Change:</p>
             <div>
               {/* Name Section */}
-              <label htmlFor="name">Name</label>{" "}
-              <input
-                type="checkbox"
-                id="name"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("name")}
-                checked={dataToModify.name}
-              />
-              <br />
-              {!dataToModify.name ? null : (
-                <>
-                  <label htmlFor="firstName">First Name:</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    className="user-input"
-                    defaultValue={authorListing.firstName}
-                    value={authorListing.firstName}
-                    onChange={handleInputChange}
-                  />
-                  <br />
-                  <label htmlFor="lastName">Last Name:</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    className="user-input"
-                    defaultValue={authorListing.lastName}
-                    value={authorListing.lastName}
-                    onChange={handleInputChange}
-                  />
-                  <br />
-                </>
-              )}
-              {/* Email Section */}
-              <label htmlFor="authorEmail">Email</label>{" "}
-              <input
-                type="checkbox"
-                id="authorEmail"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("authorEmail")}
-                checked={dataToModify.authorEmail}
-              />
-              <br />
-              {!dataToModify.authorEmail ? null : (
-                <>
-                  <label htmlFor="email" className="for-accessibility">
-                    Email
-                  </label>
-                  <input
-                    type="text"
-                    name="email"
-                    id="email"
-                    className="user-input"
-                    defaultValue={authorListing.email}
-                    value={authorListing.email}
-                    onChange={handleInputChange}
-                  />
-                  <br />
-                </>
-              )}
-              {/* Umbrella Genre Section */}
-              <label htmlFor="genre">Umbrella Genre</label>{" "}
-              <input
-                type="checkbox"
-                id="genre"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("genre")}
-                checked={dataToModify.genre}
-              />
-              <br />
-              {!dataToModify.genre ? null : (
-                <>
-                  <label htmlFor="umbrellaGenre" className="for-accessibility">
-                    Umbrella Genre
-                  </label>
-                  <div id="umbrellaGenre" className="umbrella-genre">
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="romance"
-                        name="umbrellaGenre"
-                        value="romance"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "romance"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="romance">Romance</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="fantasy"
-                        name="umbrellaGenre"
-                        value="fantasy"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "fantasy"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="fantasy">Fantasy</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="thriller"
-                        name="umbrellaGenre"
-                        value="thriller"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "thriller"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="thriller">Thriller</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="scifi"
-                        name="umbrellaGenre"
-                        value="scifi"
-                        checked={authorListing.umbrellaGenre.includes("scifi")}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="scifi">Sci-Fi</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="childrens"
-                        name="umbrellaGenre"
-                        value="childrens"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "childrens"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="childrens">Children's</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="drama"
-                        name="umbrellaGenre"
-                        value="drama"
-                        checked={authorListing.umbrellaGenre.includes("drama")}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="drama">Drama</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="horror"
-                        name="umbrellaGenre"
-                        value="horror"
-                        checked={authorListing.umbrellaGenre.includes("horror")}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="horror">Horror</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="comedy"
-                        name="umbrellaGenre"
-                        value="comedy"
-                        checked={authorListing.umbrellaGenre.includes("comedy")}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="comedy">Comedy</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="dystopian"
-                        name="umbrellaGenre"
-                        value="dystopian"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "dystopian"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="dystopian">Dystopian</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="nonfiction"
-                        name="umbrellaGenre"
-                        value="nonfiction"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "nonfiction"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="nonfiction">Non-Fiction</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="western"
-                        name="umbrellaGenre"
-                        value="western"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "western"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="western">Western</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="historicalfiction"
-                        name="umbrellaGenre"
-                        value="historicalfiction"
-                        checked={authorListing.umbrellaGenre.includes(
-                          "historicalfiction"
-                        )}
-                        onChange={handleGenreChange}
-                      />
-                      <label htmlFor="historicalfiction">Hist. Fict.</label>
-                    </div>
-                  </div>
-                </>
-              )}
-              {/* Subgenre Section */}
-              <label htmlFor="nicheGenre">Subgenre</label>{" "}
-              <input
-                type="checkbox"
-                id="nicheGenre"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("nicheGenre")}
-                checked={dataToModify.nicheGenre}
-              />
-              <br />
-              {!dataToModify.nicheGenre ? null : (
-                <>
-                  <label htmlFor="subGenre" className="for-accessibility">
-                    Subgenre
-                  </label>
-                  <div className="side-by-side">
+              <div className="spacer">
+                <label htmlFor="name">Name</label>{" "}
+                <input
+                  type="checkbox"
+                  id="name"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("name")}
+                  checked={dataToModify.name}
+                />
+                <br />
+                {!dataToModify.name ? null : (
+                  <>
+                    <label htmlFor="firstName">First Name:</label>
                     <input
-                      className="user-input"
                       type="text"
-                      name="subGenre"
-                      id="subGenre"
-                      value={userChoice}
-                      onChange={handleUserChoice}
+                      name="firstName"
+                      id="firstName"
+                      className="user-input"
+                      defaultValue={authorListing.firstName}
+                      value={authorListing.firstName}
+                      onChange={handleInputChange}
                     />
-                    {/* adds text to subGenre array */}{" "}
-                    <button onClick={handleAddSubGenre} className="button">
-                      Add
-                    </button>
-                  </div>
-                  {/* display current subGenre array */}
-                  <p>Current Sub-Genres Selected:</p>
-                  <p>
-                    {authorListing.subGenre.map((subGenre, index) => (
-                      <span key={index}>
-                        {subGenre}&nbsp;
-                        {/* removes the selected item from the array */}
-                        <span
-                          className="remove-dash"
-                          onClick={() => handleRemoveSubGenre(index)}
-                        >
-                          &times;
+                    <br />
+                    <label htmlFor="lastName">Last Name:</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      id="lastName"
+                      className="user-input"
+                      defaultValue={authorListing.lastName}
+                      value={authorListing.lastName}
+                      onChange={handleInputChange}
+                    />
+                  </>
+                )}
+              </div>
+              {/* Email Section */}
+              <div className="spacer">
+                <label htmlFor="authorEmail">Email</label>{" "}
+                <input
+                  type="checkbox"
+                  id="authorEmail"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("authorEmail")}
+                  checked={dataToModify.authorEmail}
+                />
+                <br />
+                {!dataToModify.authorEmail ? null : (
+                  <>
+                    <label htmlFor="email" className="for-accessibility">
+                      Email
+                    </label>
+                    <input
+                      type="text"
+                      name="email"
+                      id="email"
+                      className="user-input"
+                      defaultValue={authorListing.email}
+                      value={authorListing.email}
+                      onChange={handleInputChange}
+                    />
+                  </>
+                )}
+              </div>
+              {/* Umbrella Genre Section */}
+              <div className="spacer">
+                <label htmlFor="genre">Umbrella Genre</label>{" "}
+                <input
+                  type="checkbox"
+                  id="genre"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("genre")}
+                  checked={dataToModify.genre}
+                />
+                <br />
+                {!dataToModify.genre ? null : (
+                  <>
+                    <label
+                      htmlFor="umbrellaGenre"
+                      className="for-accessibility"
+                    >
+                      Umbrella Genre
+                    </label>
+                    <div id="umbrellaGenre" className="umbrella-genre">
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="romance"
+                          name="umbrellaGenre"
+                          value="romance"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "romance"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="romance">Romance</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="fantasy"
+                          name="umbrellaGenre"
+                          value="fantasy"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "fantasy"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="fantasy">Fantasy</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="thriller"
+                          name="umbrellaGenre"
+                          value="thriller"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "thriller"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="thriller">Thriller</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="scifi"
+                          name="umbrellaGenre"
+                          value="scifi"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "scifi"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="scifi">Sci-Fi</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="childrens"
+                          name="umbrellaGenre"
+                          value="childrens"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "childrens"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="childrens">Children's</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="drama"
+                          name="umbrellaGenre"
+                          value="drama"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "drama"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="drama">Drama</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="horror"
+                          name="umbrellaGenre"
+                          value="horror"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "horror"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="horror">Horror</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="comedy"
+                          name="umbrellaGenre"
+                          value="comedy"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "comedy"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="comedy">Comedy</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="dystopian"
+                          name="umbrellaGenre"
+                          value="dystopian"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "dystopian"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="dystopian">Dystopian</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="nonfiction"
+                          name="umbrellaGenre"
+                          value="nonfiction"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "nonfiction"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="nonfiction">Non-Fiction</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="western"
+                          name="umbrellaGenre"
+                          value="western"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "western"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="western">Western</label>
+                      </div>
+                      <div>
+                        <input
+                          type="checkbox"
+                          id="historicalfiction"
+                          name="umbrellaGenre"
+                          value="historicalfiction"
+                          checked={authorListing.umbrellaGenre.includes(
+                            "historicalfiction"
+                          )}
+                          onChange={handleGenreChange}
+                        />
+                        <label htmlFor="historicalfiction">Hist. Fict.</label>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+              {/* Subgenre Section */}
+              <div className="spacer">
+                <label htmlFor="nicheGenre">Subgenre</label>{" "}
+                <input
+                  type="checkbox"
+                  id="nicheGenre"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("nicheGenre")}
+                  checked={dataToModify.nicheGenre}
+                />
+                <br />
+                {!dataToModify.nicheGenre ? null : (
+                  <>
+                    <label htmlFor="subGenre" className="for-accessibility">
+                      Subgenre
+                    </label>
+                    <div className="side-by-side">
+                      <input
+                        className="user-input"
+                        type="text"
+                        name="subGenre"
+                        id="subGenre"
+                        value={userChoice}
+                        onChange={handleUserChoice}
+                      />
+                      {/* adds text to subGenre array */}{" "}
+                      <button onClick={handleAddSubGenre} className="button">
+                        Add
+                      </button>
+                    </div>
+                    {/* display current subGenre array */}
+                    <p>Current Sub-Genres Selected:</p>
+                    <p>
+                      {authorListing.subGenre.map((subGenre, index) => (
+                        <span key={index}>
+                          {subGenre}&nbsp;
+                          {/* removes the selected item from the array */}
+                          <span
+                            className="remove-dash"
+                            onClick={() => handleRemoveSubGenre(index)}
+                          >
+                            &times;
+                          </span>
+                          &nbsp;
                         </span>
-                        &nbsp;
-                      </span>
-                    ))}
-                  </p>
-                </>
-              )}
+                      ))}
+                    </p>
+                  </>
+                )}
+              </div>
               {/* Links Section */}
-              <label htmlFor="links">Links</label>{" "}
-              <input
-                type="checkbox"
-                id="links"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("links")}
-                checked={dataToModify.links}
-              />
-              <br />
-              {!dataToModify.links ? null : (
-                <>
-                  <div className="additional-links">
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="instagrambox"
-                        onChange={() =>
-                          handleAdditionalLinksBox("instagrambox")
-                        }
-                        checked={additionalLink.instagrambox}
-                      />
-                      <label htmlFor="instagrambox">Instagram</label>
+              <div className="spacer">
+                <label htmlFor="links">Links</label>{" "}
+                <input
+                  type="checkbox"
+                  id="links"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("links")}
+                  checked={dataToModify.links}
+                />
+                <br />
+                {!dataToModify.links ? null : (
+                  <>
+                    <div className="additional-links">
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="instagrambox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("instagrambox")
+                          }
+                          checked={additionalLink.instagrambox}
+                        />
+                        <label htmlFor="instagrambox">Instagram</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="facebookbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("facebookbox")
+                          }
+                          checked={additionalLink.facebookbox}
+                        />
+                        <label htmlFor="facebookbox">Facebook</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="twitterbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("twitterbox")
+                          }
+                          checked={additionalLink.twitterbox}
+                        />
+                        <label htmlFor="twitterbox">Twitter/X</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="tiktokbox"
+                          onChange={() => handleAdditionalLinksBox("tiktokbox")}
+                          checked={additionalLink.tiktokbox}
+                        />
+                        <label htmlFor="tiktokbox">TikTok</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="threadsbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("threadsbox")
+                          }
+                          checked={additionalLink.threadsbox}
+                        />
+                        <label htmlFor="threadsbox">Threads</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="mastodonbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("mastodonbox")
+                          }
+                          checked={additionalLink.mastodonbox}
+                        />
+                        <label htmlFor="mastodonbox">Mastodon</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="amazonbiobox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("amazonbiobox")
+                          }
+                          checked={additionalLink.amazonbiobox}
+                        />
+                        <label htmlFor="amazonbiobox">Amazon Author Page</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="goodreadsbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("goodreadsbox")
+                          }
+                          checked={additionalLink.goodreadsbox}
+                        />
+                        <label htmlFor="goodreadsbox">Goodreads</label>
+                      </div>
+                      <div>
+                        <input
+                          className="user-checkbox"
+                          type="checkbox"
+                          id="bookbubbox"
+                          onChange={() =>
+                            handleAdditionalLinksBox("bookbubbox")
+                          }
+                          checked={additionalLink.bookbubbox}
+                        />
+                        <label htmlFor="bookbubbox">BookBub</label>
+                      </div>
                     </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="facebookbox"
-                        onChange={() => handleAdditionalLinksBox("facebookbox")}
-                        checked={additionalLink.facebookbox}
-                      />
-                      <label htmlFor="facebookbox">Facebook</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="twitterbox"
-                        onChange={() => handleAdditionalLinksBox("twitterbox")}
-                        checked={additionalLink.twitterbox}
-                      />
-                      <label htmlFor="twitterbox">Twitter/X</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="tiktokbox"
-                        onChange={() => handleAdditionalLinksBox("tiktokbox")}
-                        checked={additionalLink.tiktokbox}
-                      />
-                      <label htmlFor="tiktokbox">TikTok</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="threadsbox"
-                        onChange={() => handleAdditionalLinksBox("threadsbox")}
-                        checked={additionalLink.threadsbox}
-                      />
-                      <label htmlFor="threadsbox">Threads</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="mastodonbox"
-                        onChange={() => handleAdditionalLinksBox("mastodonbox")}
-                        checked={additionalLink.mastodonbox}
-                      />
-                      <label htmlFor="mastodonbox">Mastodon</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="amazonbiobox"
-                        onChange={() =>
-                          handleAdditionalLinksBox("amazonbiobox")
-                        }
-                        checked={additionalLink.amazonbiobox}
-                      />
-                      <label htmlFor="amazonbiobox">Amazon Author Page</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="goodreadsbox"
-                        onChange={() =>
-                          handleAdditionalLinksBox("goodreadsbox")
-                        }
-                        checked={additionalLink.goodreadsbox}
-                      />
-                      <label htmlFor="goodreadsbox">Goodreads</label>
-                    </div>
-                    <div>
-                      <input
-                        className="user-checkbox"
-                        type="checkbox"
-                        id="bookbubbox"
-                        onChange={() => handleAdditionalLinksBox("bookbubbox")}
-                        checked={additionalLink.bookbubbox}
-                      />
-                      <label htmlFor="bookbubbox">BookBub</label>
-                    </div>
-                  </div>
-                  <br />
-                  {additionalLink.instagrambox ? (
-                    <>
-                      <label htmlFor="instagram">Instagram:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="instagram"
-                        id="instagram"
-                        value={authorListing.instagram}
-                        defaultValue={authorListing.instagram}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.facebookbox ? (
-                    <>
-                      <label htmlFor="facebook">Facebook:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="facebook"
-                        id="facebook"
-                        value={authorListing.facebook}
-                        defaultValue={authorListing.facebook}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.twitterbox ? (
-                    <>
-                      <label htmlFor="twitter">Twitter/X:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="twitter"
-                        id="twitter"
-                        value={authorListing.twitter}
-                        defaultValue={authorListing.twitter}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.tiktokbox ? (
-                    <>
-                      <label htmlFor="tiktok">TikTok:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="tiktok"
-                        id="tiktok"
-                        value={authorListing.tiktok}
-                        defaultValue={authorListing.tiktok}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.threadsbox ? (
-                    <>
-                      <label htmlFor="threads">Threads:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="threads"
-                        id="threads"
-                        value={authorListing.threads}
-                        defaultValue={authorListing.threads}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.mastodonbox ? (
-                    <>
-                      <label htmlFor="mastodon">Mastodon:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="mastodon"
-                        id="mastodon"
-                        value={authorListing.mastodon}
-                        defaultValue={authorListing.mastodon}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.amazonbiobox ? (
-                    <>
-                      <label htmlFor="amazonBio">Amazon Author Page:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="amazonBio"
-                        id="amazonBio"
-                        value={authorListing.amazonBio}
-                        defaultValue={authorListing.amazonBio}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.goodreadsbox ? (
-                    <>
-                      <label htmlFor="goodreads">Goodreads:</label>
-                      <input
-                        type="text"
-                        className="user-input"
-                        name="goodreads"
-                        id="goodreads"
-                        value={authorListing.goodreads}
-                        defaultValue={authorListing.goodreads}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}
-                  {additionalLink.bookbubbox ? (
-                    <>
-                      <label htmlFor="bookbub">BookBub:</label>
-                      <input
-                        className="user-input"
-                        type="text"
-                        name="bookbub"
-                        id="bookbub"
-                        value={authorListing.bookbub}
-                        defaultValue={authorListing.bookbub}
-                        onChange={handleInputChange}
-                      />
-                      <br />
-                    </>
-                  ) : null}{" "}
-                </>
-              )}
+                    <br />
+                    {additionalLink.instagrambox ? (
+                      <>
+                        <label htmlFor="instagram">Instagram:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="instagram"
+                          id="instagram"
+                          value={authorListing.instagram}
+                          defaultValue={authorListing.instagram}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.facebookbox ? (
+                      <>
+                        <label htmlFor="facebook">Facebook:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="facebook"
+                          id="facebook"
+                          value={authorListing.facebook}
+                          defaultValue={authorListing.facebook}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.twitterbox ? (
+                      <>
+                        <label htmlFor="twitter">Twitter/X:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="twitter"
+                          id="twitter"
+                          value={authorListing.twitter}
+                          defaultValue={authorListing.twitter}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.tiktokbox ? (
+                      <>
+                        <label htmlFor="tiktok">TikTok:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="tiktok"
+                          id="tiktok"
+                          value={authorListing.tiktok}
+                          defaultValue={authorListing.tiktok}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.threadsbox ? (
+                      <>
+                        <label htmlFor="threads">Threads:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="threads"
+                          id="threads"
+                          value={authorListing.threads}
+                          defaultValue={authorListing.threads}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.mastodonbox ? (
+                      <>
+                        <label htmlFor="mastodon">Mastodon:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="mastodon"
+                          id="mastodon"
+                          value={authorListing.mastodon}
+                          defaultValue={authorListing.mastodon}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.amazonbiobox ? (
+                      <>
+                        <label htmlFor="amazonBio">Amazon Author Page:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="amazonBio"
+                          id="amazonBio"
+                          value={authorListing.amazonBio}
+                          defaultValue={authorListing.amazonBio}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.goodreadsbox ? (
+                      <>
+                        <label htmlFor="goodreads">Goodreads:</label>
+                        <input
+                          type="text"
+                          className="user-input"
+                          name="goodreads"
+                          id="goodreads"
+                          value={authorListing.goodreads}
+                          defaultValue={authorListing.goodreads}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}
+                    {additionalLink.bookbubbox ? (
+                      <>
+                        <label htmlFor="bookbub">BookBub:</label>
+                        <input
+                          className="user-input"
+                          type="text"
+                          name="bookbub"
+                          id="bookbub"
+                          value={authorListing.bookbub}
+                          defaultValue={authorListing.bookbub}
+                          onChange={handleInputChange}
+                        />
+                        <br />
+                      </>
+                    ) : null}{" "}
+                  </>
+                )}
+              </div>
               {/* Bio Section */}
-              <label htmlFor="authorBio">Bio</label>{" "}
-              <input
-                type="checkbox"
-                id="authorBio"
-                className="user-checkbox"
-                onChange={() => handleChooseToModify("authorBio")}
-                checked={dataToModify.authorBio}
-              />
-              {!dataToModify.authorBio ? null : (
-                <>
-                  <label htmlFor="bio" className="for-accessibility">
-                    Bio
-                  </label>
-                  <textarea
-                    className="bio-text"
-                    name="bio"
-                    id="bio"
-                    cols="30"
-                    rows="10"
-                    defaultValue={ConvertBio(authorListing.bio)}
-                    onChange={handleBioChange}
-                  ></textarea>
-                  <br />
-                </>
-              )}
+              <div className="spacer">
+                <label htmlFor="authorBio">Bio</label>{" "}
+                <input
+                  type="checkbox"
+                  id="authorBio"
+                  className="user-checkbox"
+                  onChange={() => handleChooseToModify("authorBio")}
+                  checked={dataToModify.authorBio}
+                />
+                {!dataToModify.authorBio ? null : (
+                  <>
+                    <label htmlFor="bio" className="for-accessibility">
+                      Bio
+                    </label>
+                    <textarea
+                      className="bio-text"
+                      name="bio"
+                      id="bio"
+                      cols="30"
+                      rows="10"
+                      defaultValue={ConvertBio(authorListing.bio)}
+                      onChange={handleBioChange}
+                    ></textarea>
+                  </>
+                )}
+              </div>
+              {/* Submit */}
               <div className="submit">
                 <button className="button">Submit</button>
               </div>

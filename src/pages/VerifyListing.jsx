@@ -133,10 +133,10 @@ function VerifyListing() {
                           Indie Book Vault's website on this author's site?
                         </p>
                         <br />
-                        <p>
+                        <p className="spacer">
                           Name: {author.firstName} {author.lastName}
                         </p>
-                        <p>
+                        <p className="spacer">
                           Website:{" "}
                           <a
                             href={author.website}
@@ -146,19 +146,40 @@ function VerifyListing() {
                             {author.website}
                           </a>
                         </p>
-                        <p>Email: {author.email}</p>
-                        {author.instagram ? (
-                          <a href={author.instagram}>Instagram</a>
-                        ) : null}
-                        {author.facebook ? (
-                          <a
-                            href={author.facebook}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Facebook
-                          </a>
-                        ) : null}
+                        <p className="spacer">Email: {author.email}</p>
+                        <div className="spacer">
+                          <p>Links:</p>
+                          <div className="additional-links">
+                            {!author.instagram ? null : (
+                              <a href={author.instagram}>Instagram</a>
+                            )}
+                            {!author.facebook ? null : (
+                              <a href={author.facebook}>Facebook</a>
+                            )}
+                            {!author.twitter ? null : (
+                              <a href={author.twitter}>Twitter/X</a>
+                            )}
+                            {!author.tiktok ? null : (
+                              <a href={author.tiktok}>TikTok</a>
+                            )}
+                            {!author.threads ? null : (
+                              <a href={author.threads}>Threads</a>
+                            )}
+                            {!author.mastodon ? null : (
+                              <a href={author.mastodon}>Mastodon</a>
+                            )}
+                            {!author.amazonBio ? null : (
+                              <a href={author.amazonBio}>Amazon Author Page</a>
+                            )}
+                            {!author.goodreads ? null : (
+                              <a href={author.goodreads}>Goodreads</a>
+                            )}
+                            {!author.bookbub ? null : (
+                              <a href={author.bookbub}>BookBub</a>
+                            )}
+                          </div>
+                        </div>
+
                         <p>Listed on: {author.createdAt}</p>
                         <br />
                         <p>

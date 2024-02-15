@@ -30,6 +30,10 @@
   padding: 1rem;
 }
 
+.spacer{
+  padding-bottom: .65rem;
+}
+
 .author-info {
   font-family: monospace;
   font-weight: bold;
@@ -90,6 +94,11 @@
 
 .side-by-side{
   display: flex;
+}
+
+.buttons-side-by-side{
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .submit {
