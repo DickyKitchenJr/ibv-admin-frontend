@@ -20,7 +20,9 @@
 
 ## Achievements:
 
-- TBD
+- handled validation and redirects user if not signed in
+- handle CRUD operations for dealing with applications submitted to indiebookvault.com
+- handle CRUD operations for indiebookvault.com database 
 
 ## Copyright
 
