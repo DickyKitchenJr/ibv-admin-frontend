@@ -151,31 +151,85 @@ function VerifyListing() {
                           <p>Links:</p>
                           <div className="additional-links">
                             {!author.instagram ? null : (
-                              <a href={author.instagram}>Instagram</a>
+                              <a
+                                href={author.instagram}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Instagram
+                              </a>
                             )}
                             {!author.facebook ? null : (
-                              <a href={author.facebook}>Facebook</a>
+                              <a
+                                href={author.facebook}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Facebook
+                              </a>
                             )}
                             {!author.twitter ? null : (
-                              <a href={author.twitter}>Twitter/X</a>
+                              <a
+                                href={author.twitter}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Twitter/X
+                              </a>
                             )}
                             {!author.tiktok ? null : (
-                              <a href={author.tiktok}>TikTok</a>
+                              <a
+                                href={author.tiktok}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                TikTok
+                              </a>
                             )}
                             {!author.threads ? null : (
-                              <a href={author.threads}>Threads</a>
+                              <a
+                                href={author.threads}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Threads
+                              </a>
                             )}
                             {!author.mastodon ? null : (
-                              <a href={author.mastodon}>Mastodon</a>
+                              <a
+                                href={author.mastodon}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Mastodon
+                              </a>
                             )}
                             {!author.amazonBio ? null : (
-                              <a href={author.amazonBio}>Amazon Author Page</a>
+                              <a
+                                href={author.amazonBio}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Amazon Author Page
+                              </a>
                             )}
                             {!author.goodreads ? null : (
-                              <a href={author.goodreads}>Goodreads</a>
+                              <a
+                                href={author.goodreads}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                Goodreads
+                              </a>
                             )}
                             {!author.bookbub ? null : (
-                              <a href={author.bookbub}>BookBub</a>
+                              <a
+                                href={author.bookbub}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                BookBub
+                              </a>
                             )}
                           </div>
                         </div>

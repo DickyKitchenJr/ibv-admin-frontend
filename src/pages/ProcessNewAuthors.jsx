@@ -370,7 +370,11 @@ function ProcessNewAuthors() {
                   {pendingAuthors[authorIndex].website ? (
                     <p className="spacer">
                       Website:{" "}
-                      <a href={pendingAuthors[authorIndex].website}>
+                      <a
+                        href={pendingAuthors[authorIndex].website}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         {pendingAuthors[authorIndex].website}
                       </a>
                     </p>
@@ -405,45 +409,83 @@ function ProcessNewAuthors() {
                     <p>Links:</p>
                     <div className="additional-links">
                       {!pendingAuthors[authorIndex].instagram ? null : (
-                        <a href={pendingAuthors[authorIndex].instagram}>
+                        <a
+                          href={pendingAuthors[authorIndex].instagram}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Instagram
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].facebook ? null : (
-                        <a href={pendingAuthors[authorIndex].facebook}>
+                        <a
+                          href={pendingAuthors[authorIndex].facebook}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Facebook
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].twitter ? null : (
-                        <a href={pendingAuthors[authorIndex].twitter}>
+                        <a
+                          href={pendingAuthors[authorIndex].twitter}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Twitter/X
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].tiktok ? null : (
-                        <a href={pendingAuthors[authorIndex].tiktok}>TikTok</a>
+                        <a
+                          href={pendingAuthors[authorIndex].tiktok}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          TikTok
+                        </a>
                       )}
                       {!pendingAuthors[authorIndex].threads ? null : (
-                        <a href={pendingAuthors[authorIndex].threads}>
+                        <a
+                          href={pendingAuthors[authorIndex].threads}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Threads
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].mastodon ? null : (
-                        <a href={pendingAuthors[authorIndex].mastodon}>
+                        <a
+                          href={pendingAuthors[authorIndex].mastodon}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Mastodon
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].amazonBio ? null : (
-                        <a href={pendingAuthors[authorIndex].amazonBio}>
+                        <a
+                          href={pendingAuthors[authorIndex].amazonBio}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Amazon Author Page
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].goodreads ? null : (
-                        <a href={pendingAuthors[authorIndex].goodreads}>
+                        <a
+                          href={pendingAuthors[authorIndex].goodreads}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           Goodreads
                         </a>
                       )}
                       {!pendingAuthors[authorIndex].bookbub ? null : (
-                        <a href={pendingAuthors[authorIndex].bookbub}>
+                        <a
+                          href={pendingAuthors[authorIndex].bookbub}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           BookBub
                         </a>
                       )}

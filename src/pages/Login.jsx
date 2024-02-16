@@ -83,7 +83,11 @@ function Login() {
                   allowFullScreen
                 ></iframe>
                 <p>
-                  <a href="https://giphy.com/gifs/chicken-bro-ftqLysT45BJMagKFuk">
+                  <a
+                    href="https://giphy.com/gifs/chicken-bro-ftqLysT45BJMagKFuk"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     via GIPHY
                   </a>
                 </p>
