@@ -1,5 +1,5 @@
 # Indie Book Vault (admin front-end)
-#### Live site: currently hosted locally
+#### Live site: [https://admin.indiebookvault.com/]
 #### Full Project Repo: [https://github.com/DickyKitchenJr/Indie-Book-Vault-Full-Project]
 
 ## Purpose:
