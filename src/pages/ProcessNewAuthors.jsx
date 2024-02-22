@@ -14,6 +14,7 @@ function ProcessNewAuthors() {
   const [dataToModify, setDataToModify] = useState({
     name: false,
     authorEmail: false,
+    authorWebsite: false,
     genre: false,
     nicheGenre: false,
     links: false,
@@ -588,6 +589,37 @@ function ProcessNewAuthors() {
                             className="user-input"
                             defaultValue={pendingAuthors[authorIndex].email}
                             value={pendingAuthors[authorIndex].email}
+                            onChange={handleInputChange}
+                          />
+                        </>
+                      )}
+                    </div>
+                    {/* Website Section */}
+                    <div className="spacer">
+                      <label htmlFor="authorWebsite">Website</label>{" "}
+                      <input
+                        type="checkbox"
+                        id="authorWebsite"
+                        className="user-checkbox"
+                        onChange={() => handleChooseToModify("authorWebsite")}
+                        checked={dataToModify.authorWebsite}
+                      />
+                      <br />
+                      {!dataToModify.authorWebsite ? null : (
+                        <>
+                          <label
+                            htmlFor="website"
+                            className="for-accessibility"
+                          >
+                            Website
+                          </label>
+                          <input
+                            type="text"
+                            name="website"
+                            id="website"
+                            className="user-input"
+                            defaultValue={pendingAuthors[authorIndex].website}
+                            value={pendingAuthors[authorIndex].website}
                             onChange={handleInputChange}
                           />
                         </>
