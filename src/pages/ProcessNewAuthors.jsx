@@ -203,6 +203,10 @@ function ProcessNewAuthors() {
   };
 
   const handleSkipButton = () => {
+    //advance emailAddress to next author's email address
+    const emailAddress = pendingAuthors[authorIndex + 1].email || " ";
+    setAuthorsEmail(emailAddress);
+    //advance index to next author
     setAuthorIndex(authorIndex + 1);
   };
 
