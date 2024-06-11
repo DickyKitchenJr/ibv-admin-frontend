@@ -34,6 +34,9 @@ function Welcome() {
             <NavLink to="/addusers" className="welcome-tab">
               Add Users
             </NavLink>
+            <NavLink to="/allauthors" className="welcome-tab">
+              All Authors
+            </NavLink>
             <br />
             <br />
           </main>{" "}
@@ -50,6 +53,9 @@ function Welcome() {
             </NavLink>
             <NavLink to="/verify" className="welcome-tab">
               Verify Listings
+            </NavLink>
+            <NavLink to="/allauthors" className="welcome-tab">
+              All Authors
             </NavLink>
             <br />
             <br />
