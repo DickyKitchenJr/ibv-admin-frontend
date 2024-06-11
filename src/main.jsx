@@ -10,6 +10,7 @@ import ModifyListing from "./pages/ModifyListing.jsx";
 import VerifyListing from "./pages/VerifyListing.jsx";
 import DeleteAuthors from "./pages/DeleteAuthors.jsx";
 import AddUsers from "./pages/AddUsers.jsx";
+import AllAuthors from "./pages/AllAuthors.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
     path: "addusers",
     element: <AddUsers />,
   },
+  {
+    path: "allauthors",
+    element: <AllAuthors />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
